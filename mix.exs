@@ -11,7 +11,8 @@ defmodule Kanban.MixProject do
       aliases: aliases(),
       deps: deps(),
       dialyzer: [
-        plt_add_apps: [:ex_unit]]
+        plt_add_apps: [:ex_unit]
+      ]
     ]
   end
 
