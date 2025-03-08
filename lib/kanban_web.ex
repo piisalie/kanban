@@ -15,8 +15,6 @@ defmodule KanbanWeb do
   Do NOT define functions inside the quoted expressions
   below. Instead, define additional modules and import
   those modules here.
-
-  
   """
 
   def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)
