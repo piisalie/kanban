@@ -48,9 +48,9 @@ jobs:
           path: |
             priv/plts
           key: |
-            ${{ env.KEY_BASE }}-${{ hashFiles('**/mix.lock') }}-${{ steps.setup-beam.outputs.elixir-version }}
+            ${{ env.KEY_BASE }}-${{ hashFiles('**/mix.lock') }}-29
           restore-keys: |
-            ${{ env.KEY_BASE }}-${{ steps.setup-beam.outputs.elixir-version }}
+            ${{ env.KEY_BASE }}-
 
       - name: Dialyzer static analysis
         run: mix dialyzer --format github
