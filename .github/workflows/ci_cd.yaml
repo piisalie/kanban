@@ -27,7 +27,7 @@ jobs:
           path: |
             deps
             _build
-          key: ${{ runner.os }}-mix-${{ steps.setup-beam.outputs.elixir-version }}-${{ hashFiles('**/mix.lock') }}
+          key: ${{ runner.os }}-mix-${{ steps.setup-elixir.outputs.elixir-version }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: |
             ${{ runner.os }}-mix-
 
@@ -44,7 +44,7 @@ jobs:
         uses: actions/cache@v4
         id: cache-plt
         env:
-          KEY_BASE: plt-${{ runner.os }}-${{ steps.setup-beam.outputs.elixir-version }}
+          KEY_BASE: plt-${{ runner.os }}-${{ steps.setup-elixir.outputs.elixir-version }}
         with:
           path: |
             priv/plts
