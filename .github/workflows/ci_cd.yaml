@@ -6,7 +6,7 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
-  name: Compile
+    name: Compile
   env:
     MIX_ENV: test
   steps:
