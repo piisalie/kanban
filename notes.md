@@ -22,3 +22,6 @@ better instructions about generating a token or if we should or whatever
 " never trust a test you haven't seen fail
 ubuntu vs debian?
 runner elixir 1.17 instead of 1.16?"
+
+      ImageOS: ubuntu22
+
