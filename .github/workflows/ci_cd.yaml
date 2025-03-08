@@ -18,7 +18,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup Elixir
-        uses: erlef/setup-beam@v1.17.3
+        id: setup-elixir
+        uses: erlef/setup-beam@v1.18.2
         with:
           version-file: .tool-versions
           version-type: strict
@@ -30,7 +31,7 @@ jobs:
           path: |
             deps
             _build
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          key: ${{ runner.os }}-mix-${{ steps.setup-elixir.outputs.elixir-version }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: |
             ${{ runner.os }}-mix-
 
@@ -45,9 +46,9 @@ jobs:
 
       - name: Cache plt files
         uses: actions/cache@v4
+        id: cache-plt
         env:
-          EX_OTP_VERSIONS: ${{ steps.setup-beam.outputs.elixir-version }}
-          KEY_BASE: plt-${{ runner.os }}-${{ env.EX_OTP_VERSIONS }}
+          KEY_BASE: plt-${{ runner.os }}-${{ steps.setup-elixir.outputs.elixir-version }}
         with:
           path: |
             priv/plts
@@ -55,6 +56,10 @@ jobs:
             ${{ env.KEY_BASE }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: |
             ${{ env.KEY_BASE }}-
+
+      - name: Create PLTs
+        if: steps.cache-plt.outputs.cache-hit != 'true'
+        run: mix dialyzer --plt
 
       - name: Dialyzer static analysis
         run: mix dialyzer --format github
