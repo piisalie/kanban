@@ -9,6 +9,7 @@ jobs:
     name: Compile
     env:
       MIX_ENV: test
+      ImageOS: ubuntu22
     steps:
       - uses: actions/checkout@v4
 
@@ -17,7 +18,7 @@ jobs:
         with:
           version-file: .tool-versions
           version-type: strict
-          
+
       - name: Get dependencies
         run: mix deps.get
 
