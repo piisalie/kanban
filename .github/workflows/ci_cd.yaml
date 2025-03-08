@@ -26,7 +26,7 @@ jobs:
           path: |
             deps
             _build
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}-${{ steps.setup-beam.outputs.elixir-version }}
           restore-keys: |
             ${{ runner.os }}-mix-
 
@@ -48,9 +48,9 @@ jobs:
           path: |
             priv/plts
           key: |
-            ${{ env.KEY_BASE }}-${{ hashFiles('**/mix.lock') }}-${{ hashFiles('**/.tool-versions') }}
+            ${{ env.KEY_BASE }}-${{ hashFiles('**/mix.lock') }}-${{ steps.setup-beam.outputs.elixir-version }}
           restore-keys: |
-            ${{ env.KEY_BASE }}-
+            ${{ env.KEY_BASE }}-${{ steps.setup-beam.outputs.elixir-version }}
 
       - name: Dialyzer static analysis
         run: mix dialyzer --format github
