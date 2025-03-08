@@ -42,6 +42,7 @@ jobs:
 
       - name: Cache plt files
         uses: actions/cache@v4
+        id: cache-plt
         env:
           KEY_BASE: plt-${{ runner.os }}-${{ steps.setup-beam.outputs.elixir-version }}
         with:
@@ -53,7 +54,7 @@ jobs:
             ${{ env.KEY_BASE }}-
 
       - name: Create PLTs
-        if: steps.plt_cache.outputs.cache-hit != 'true'
+        if: steps.cache-plt.outputs.cache-hit != 'true'
         run: mix dialyzer --plt
 
       - name: Dialyzer static analysis
