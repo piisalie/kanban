@@ -48,7 +48,7 @@ jobs:
           path: |
             priv/plts
           key: |
-            ${{ env.KEY_BASE }}-${{ hashFiles('**/mix.lock') }}
+            ${{ env.KEY_BASE }}-${{ hashFiles('**/mix.lock') }}-${{ hashFiles('**/.tool-versions') }}
           restore-keys: |
             ${{ env.KEY_BASE }}-
 
