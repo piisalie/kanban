@@ -23,6 +23,8 @@ better instructions about generating a token or if we should or whatever
 ubuntu vs debian?
 runner elixir 1.17 instead of 1.16?"
 
+formatting and stati analysis AFTER tests?
+
 
 ImageOS: ubuntu22
 

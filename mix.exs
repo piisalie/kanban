@@ -11,6 +11,8 @@ defmodule Kanban.MixProject do
       aliases: aliases(),
       deps: deps(),
       dialyzer: [
+        plt_core_path: "priv/plts/core.plt",
+        plt_file: {:no_warn, "priv/plts/project.plt"},
         plt_add_apps: [:ex_unit]
       ]
     ]
