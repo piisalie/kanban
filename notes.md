@@ -25,6 +25,10 @@ runner elixir 1.17 instead of 1.16?"
 
 formatting and stati analysis AFTER tests?
 
+could with images build-push be a var instaed of hard coded username
+
+cant we make a secret for gh actions iwth terraform?
+
 
 ImageOS: ubuntu22
 
