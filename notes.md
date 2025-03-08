@@ -23,19 +23,26 @@ better instructions about generating a token or if we should or whatever
 ubuntu vs debian?
 runner elixir 1.17 instead of 1.16?"
 
-      ImageOS: ubuntu22
+
+ImageOS: ubuntu22
 
 
 warning: defining a Gettext backend by calling
-
     use Gettext, otp_app: ...
-
 is deprecated. To define a backend, call:
-
     use Gettext.Backend, otp_app: :my_app
-
 Then, instead of importing your backend, call this in your module:
-
     use Gettext, backend: MyApp.Gettext
-
   lib/kanban_web/gettext.ex:23: KanbanWeb.Gettext (module)
+
+________________________________________________________________________________
+test/support/conn_case.ex:1:unknown_function
+Function ExUnit.Callbacks.__merge__/4 does not exist.
+________________________________________________________________________________
+test/support/conn_case.ex:1:unknown_function
+Function ExUnit.Callbacks.__noop__/0 does not exist.
+________________________________________________________________________________
+test/support/conn_case.ex:20:unknown_function
+Function ExUnit.CaseTemplate.__proxy__/2 does not exist.
+________________________________________________________________________________
+done (warnings were emitted)
