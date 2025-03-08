@@ -25,3 +25,17 @@ runner elixir 1.17 instead of 1.16?"
 
       ImageOS: ubuntu22
 
+
+warning: defining a Gettext backend by calling
+
+    use Gettext, otp_app: ...
+
+is deprecated. To define a backend, call:
+
+    use Gettext.Backend, otp_app: :my_app
+
+Then, instead of importing your backend, call this in your module:
+
+    use Gettext, backend: MyApp.Gettext
+
+  lib/kanban_web/gettext.ex:23: KanbanWeb.Gettext (module)
