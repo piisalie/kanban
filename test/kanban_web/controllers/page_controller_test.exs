@@ -1,9 +1,8 @@
 defmodule KanbanWeb.PageControllerTest do
   use KanbanWeb.ConnCase
 
-  test "GET /", %{conn: _conn} do
-    # conn = get(conn, ~p"/")
-    # assert html_response(conn, 200) =~ "Peace of mind from prototype to production"
-    assert false
+  test "GET /", %{conn: conn} do
+    conn = get(conn, ~p"/")
+       assert html_response(conn, 200) =~ "Peace of mind from prototype to production"
   end
 end
