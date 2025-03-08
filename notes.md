@@ -29,6 +29,8 @@ could with images build-push be a var instaed of hard coded username
 
 cant we make a secret for gh actions iwth terraform?
 
+did you play with the image tags / prs?
+
 
 ImageOS: ubuntu22
 
