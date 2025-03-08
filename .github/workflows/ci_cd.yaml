@@ -9,13 +9,15 @@ jobs:
     name: Compile and such
     env:
       MIX_ENV: test
-      ImageOS: ubuntu24
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup Elixir
         id: setup-elixir
         uses: erlef/setup-beam@v1.18.2
+        env:
+          ImageOS: ubuntu24
         with:
           version-file: .tool-versions
           version-type: strict
